@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('combined'));
 
 
-var articles : {
+var articles = {
     'article-one' : {
     title: 'Article One | Sabi Hussain',
     heading:'Article One',
@@ -42,7 +42,7 @@ var articles : {
       
       </p>`
   }
-};
+} ;
    
 function createTemplate (data) {
     var title = data.title;
