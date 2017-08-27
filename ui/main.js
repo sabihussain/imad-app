@@ -18,10 +18,12 @@ request.onreadystatechange = function () {
    }
 //Not done yet
 };
+
 //Make the request
 request.open('GET','http://sabihussain17.imad.hasura-app.io/counter',true);
 request.send(null);
 };
+
 //Submit name
 
 var submit = document.getElementById('submit_btn');
@@ -47,8 +49,8 @@ request.onreadystatechange = function () {
    }
 //Not done yet
 };
-//Make the requestvar name
-Input = document.getElementById('name');
+//Make the reques
+var nameInput = document.getElementById('name');
 var name = nameInput.value;
 request.open('GET','http://sabihussain17.imad.hasura-app.io/submit-name?name='+name,true);
 request.send(null);
