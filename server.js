@@ -15,44 +15,6 @@ var config = {
 var app = express();
 app.use(morgan('combined'));
 
-
-var articles = {
-    'article-one' : {
-    title: 'Article One | Sabi Hussain',
-    heading:'Article One',
-    date: 'Aug 21,2017',
-    content: `
-      <p>
-      This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-      </p>
-      <p>
-      This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-      </p>
-       <p>
-      This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.This is the content for my first article.
-      </p>`
-   },
-     'article-two' : {
-      title: 'Article Two | Sabi Hussain',
-    heading:'Article Two',
-    date: 'Aug 20,2017',
-    content: `
-      <p>
-      This is the content for my second article.
-      
-      </p>`
-  },
-     'article-three' : {
-      title: 'Article Three| Sabi Hussain',
-    heading:'Article Three',
-    date: 'Aug 21,2017',
-    content: `
-      <p>
-      This is the content for my third article.
-      
-      </p>`
-  }
-} ;
    
 function createTemplate (data) {
     var title = data.title;
@@ -100,6 +62,15 @@ return htmlTemplate;
 app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
+
+function hash (input,salt) {
+    //How do we create hash?
+    var hashed = crypto.pbkdf25Sync(input,salt,10000,512,'sha512');
+    return hashed.toString('hex');
+}
+
+
+
 
 
 var pool = new Pool(config);
